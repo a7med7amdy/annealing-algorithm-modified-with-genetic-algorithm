@@ -10,6 +10,8 @@ to give weights between each two connected blocks (indicating how many wires bet
 
 to choose number of population, in annealing code section, calling process. put the number needed. please enter even number as in the logic each 2 random blocks mutates.
 
+This code has to be refactored to be better but it's released due to the deadline and will be refactored later
+
 last thing, please read all comments carefully to avoid making error.
 
 thanks
