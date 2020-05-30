@@ -394,16 +394,18 @@ def annealing(N, k, grid, connections):
     # No. of temperature points to try
     while(T > threshold):
         # 4 os the number of population taken
-        tempGrid,orientation_arr = process(N, k, grid,orientation_arr,4)
+        tempGrid,temp_orientation_arr = process(N, k, grid,orientation_arr,4)
         tempCost = cost(k, tempGrid, connections)
         delta = tempCost - minCost
         if (delta<0):
             grid = tempGrid
+            orientation_arr=temp_orientation_arr
             minCost = tempCost
         else:
             p = np.exp(-delta / T)
             if(np.random.random()<p):
                 grid = tempGrid
+                orientation_arr=temp_orientation_arr
                 minCost = tempCost
         T = updateTemp(T)
 
