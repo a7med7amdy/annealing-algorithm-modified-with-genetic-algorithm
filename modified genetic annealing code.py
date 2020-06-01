@@ -10,9 +10,9 @@ import time
 #you can also make all of the blocks equal in length by setting the differ in initialize by false
 
 # we will start our initializations for the code with the following
-INF = 100000
+INF = 100000000
 alpha = 0.99
-threshold = 0.01
+threshold = 0.00000000001
 
 #for small inputs in order not to printing error messages
 # INF = 10
@@ -107,6 +107,14 @@ def move_random(tempGrid, N, k, orientation_arr,element1):
         # find an empty place
         temp = list(zip(*np.where(tempGrid == 0)))
         (x2, y2) = temp[np.random.randint(len(temp))]
+        # if(orientation_arr[element1]==0):
+            # while(not(y2+1<N and y2-1>=0 and tempGrid[x2,y2+1]==0 and tempGrid[x2,y2-1]==0)):
+            # (x2, y2) = temp[np.random.randint(len(temp))]
+        # else:
+            # while (not(x2 + 1 < N and x2 - 1 >= 0 and tempGrid[x2+1, y2] == 0 and tempGrid[x2-1, y2] == 0)):
+            #  (x2, y2) = temp[np.random.randint(len(temp))]
+        tempGrid[x1, y1] = 0
+        tempGrid[x2, y2] = element1
     else:
         a=None
         b = None
@@ -386,7 +394,7 @@ def annealing(N, k, grid, connections):
     # No. of temperature points to try
     while(T > threshold):
         # 4 os the number of population taken
-        tempGrid,temp_orientation_arr = process(N, k, grid,orientation_arr,4)
+        tempGrid,temp_orientation_arr = process(N, k, grid,orientation_arr,200)
         tempCost = cost(k, tempGrid, connections)
         delta = tempCost - minCost
         if (delta<0):
@@ -397,7 +405,7 @@ def annealing(N, k, grid, connections):
             p = np.exp(-delta / T)
             if(np.random.random()<p):
                 grid = tempGrid
-                orientation_arr=temp_orientation_arr
+                orientation_arr = temp_orientation_arr
                 minCost = tempCost
         T = updateTemp(T)
 
@@ -419,8 +427,7 @@ def mainrun(N,k):
     print (finalGrid)
     printgrid(finalGrid)
 
-mainrun(30,480)
+mainrun(21,439)
 
 # mainrun(16,8)
-
 
