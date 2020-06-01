@@ -107,14 +107,6 @@ def move_random(tempGrid, N, k, orientation_arr,element1):
         # find an empty place
         temp = list(zip(*np.where(tempGrid == 0)))
         (x2, y2) = temp[np.random.randint(len(temp))]
-        if(orientation_arr[element1]==0):
-            while(not(y2+1<N and y2-1>=0 and tempGrid[x2,y2+1]==0 and tempGrid[x2,y2-1]==0)):
-                (x2, y2) = temp[np.random.randint(len(temp))]
-        else:
-            while (not(x2 + 1 < N and x2 - 1 >= 0 and tempGrid[x2+1, y2] == 0 and tempGrid[x2-1, y2] == 0)):
-                (x2, y2) = temp[np.random.randint(len(temp))]
-        tempGrid[x1, y1] = 0
-        tempGrid[x2, y2] = element1
     else:
         a=None
         b = None
