@@ -1,3 +1,9 @@
+    Name               sec   BN
+Ahmed Hamdy             1    1
+Ayat Mostafa            1    11
+MohamedKheir abdullah   2    12
+Mohamed Abdullah        2    17
+
 this code is in python 3.3, you need to install numpy and matplotlib specially.
 
 at the last of the code, there's mainrun sentence it will run the code
